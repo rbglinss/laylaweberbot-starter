@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: laylaweberbot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: PUSHINPAY_URL
+        sync: false
+      - key: KOFI_URL
+        sync: false
+      - key: CANAL_PREVIAS
+        sync: false
+      - key: CANAL_VIP
+        sync: false
+      - key: ADMIN_USER_IDS
+        sync: false
+    autoDeploy: true
+    healthCheckPath: /health
